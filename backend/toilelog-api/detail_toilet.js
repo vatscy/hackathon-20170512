@@ -55,15 +55,14 @@ module.exports.toilet = (event, context, callback) => {
       response.body = JSON.stringify({
         "id": data.Item.id,
         "name": data.Item.name,
+        "pillow_word": data.Item.pillow_word,
         "address": data.Item.address,
-        "photo_catch": data.Item.photo_catch,
-        "photo_square": data.Item.photo_square,
         "evaluation": data.Item.evaluation,
         "information": data.Item.information
       });
       //success data_nothing
     } else {
-      response.statusCode = 200;
+      response.statusCode = 404;
       response.body = JSON.stringify({
         "message": "対象のトイレは存在しません。"
       });
