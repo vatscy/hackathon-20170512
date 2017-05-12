@@ -72,6 +72,13 @@ functions:
           path: toilet
           method: get
           cors: true
+  listtoilet:
+    handler: list_toilet.listtoilet
+    events:
+      - http:
+          path: listtoilet
+          method: get
+          cors: true
 
 resources:
   Resources:
@@ -79,6 +86,21 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: toilets
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 2
+    DynamoTable2:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: evaluations
         AttributeDefinitions:
           -
             AttributeName: id
