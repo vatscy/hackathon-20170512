@@ -1360,4 +1360,22 @@
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function() {
+  $.ajax({
+    type: 'GET',
+    url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/toilet',
+    dataType: 'json'
+  })
+  .done(function () {
+    console.log('done');
+    console.log(arguments);
+  })
+  .fail(function () {
+    console.log('fail');
+    console.log(arguments);
+  });
+});
+</script>
 </body></html>
