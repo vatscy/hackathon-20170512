@@ -66,11 +66,12 @@ provider:
 
 functions:
   toilet:
-    handler: handler.toilet
+    handler: detail_toilet.toilet
     events:
       - http:
           path: toilet
           method: get
+          cors: true
 
 resources:
   Resources:

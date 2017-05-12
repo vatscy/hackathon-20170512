@@ -6,7 +6,11 @@
   "parserOptions": {},
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    "$": false
   },
   "rules": {
     "no-console": 0,
