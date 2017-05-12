@@ -55,8 +55,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  toilet:
+    handler: handler.toilet
     events:
       - http:
           path: toilet
