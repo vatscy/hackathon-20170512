@@ -1,3 +1,7 @@
+/*
+  トイレ詳細取得API
+*/
+
 'use strict';
 
 var AWS = require("aws-sdk");
@@ -8,6 +12,9 @@ var toilet_id = "123456789";
 //Response
 var response = {
   statusCode: 200,
+  headers: {
+    "Access-Control-Allow-Origin": "*"
+  },
   body: JSON.stringify({
     message: 'default message'
   }),
@@ -39,8 +46,11 @@ module.exports.toilet = (event, context, callback) => {
     } else if (data.Item) {
       response.statusCode = 200;
       response.body = JSON.stringify({
-        "place": data.Item.place,
-        "photo": data.Item.photo,
+        "id": data.Item.id,
+        "name": data.Item.name,
+        "address": data.Item.address,
+        "photo_catch": data.Item.photo_catch,
+        "photo_square": data.Item.photo_square,
         "evaluation": data.Item.evaluation,
         "information": data.Item.information
       });
