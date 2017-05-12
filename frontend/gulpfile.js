@@ -11,7 +11,7 @@ gulp.task('upload-s3', (done) => {
     Bucket: 'toilet.hc-mti.com',
     ACL: 'public-read'
   };
-  return gulp.src(['*', '!gulpfile.js', '!package.json'])
+  return gulp.src(['**/*', '!node_modules/**/*', '!gulpfile.js', '!package.json'])
     .pipe(s3(settings), done);
 });
 
