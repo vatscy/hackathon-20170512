@@ -1,9 +1,15 @@
 $(function() {
+  var id = location.hash.substr(1);
+  if (!id || isNaN(id)) {
+    alert('このトイレは現在存在しません。');
+    location.href = '/list.html';
+    return;
+  }
   $.ajax({
     type: 'GET',
     url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/toilet',
     data: {
-      id: 1494570067
+      id: id
     },
     dataType: 'json'
   })
@@ -31,5 +37,8 @@ $(function() {
   .fail(function () {
     console.log('fail');
     console.log(arguments);
+    alert('このトイレは現在存在しません。');
+    location.href = '/list.html';
+    return;
   });
 });
