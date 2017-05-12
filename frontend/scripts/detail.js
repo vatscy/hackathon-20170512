@@ -28,6 +28,15 @@ $(function() {
     $rating.append('<dt class="lunch">昼の点数</dt><dd>' + eva.toFixed(2) +'</dd>');
     $rating.append('<dt class="rvw">口コミ</dt><dd><span class="count">43</span><span class="unit">万件</span></dd>');
 
+    var $photoList = $('#toilet-photo-list');
+    $photoList.append('<li class="rstdtl-rvw-photo__item"><img alt="" height="120" src="/img/' + id + '/1.jpg" width="120"></li>');
+    $photoList.append('<li class="rstdtl-rvw-photo__item"><img alt="" height="120" src="/img/' + id + '/2.jpg" width="120"></li>');
+    $photoList.append('<li class="rstdtl-rvw-photo__item"><img alt="" height="120" src="/img/' + id + '/3.jpg" width="120"></li>');
+
+    $('#rv-photo-1').append('<img alt="" height="70" width="70" src="/img/' + id + '/1.jpg">');
+    $('#rv-photo-2').append('<img alt="" height="70" width="70" src="/img/' + id + '/2.jpg">');
+    $('#rv-photo-3').append('<img alt="" height="70" width="70" src="/img/' + id + '/3.jpg">');
+
     var info = data.information;
     var $infoBasic = $('#toilet-info-basic');
     function tf(isPresent) {
