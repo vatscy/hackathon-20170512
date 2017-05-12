@@ -7,7 +7,6 @@
 var AWS = require("aws-sdk");
 var dynamo = new AWS.DynamoDB.DocumentClient();
 var tableName = "toilets";
-var toilet_id = "123456789";
 
 //Response
 var response = {
@@ -23,11 +22,19 @@ var response = {
 
 module.exports.toilet = (event, context, callback) => {
 
+  const query = event.queryStringParameters;
+  if (!query || !query.id) {
+    response.statusCode = 400;
+    response.body = JSON.stringify({
+      "message": "リクエストパラメータが不足しています。"
+    });
+  }
+
   //Request
   var param = {
     "TableName": tableName,
     "Key": {
-      "id": toilet_id
+      "id": query.id
     }
   };
 
