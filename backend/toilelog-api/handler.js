@@ -28,7 +28,9 @@ module.exports.toilet = (event, context, callback) => {
   const response = {};
 
   dynamo.get(param, function(err, data) {
-    if (data.Items){
+    console.log(err);
+    console.log(data);
+    if (data.Item){
       response.statusCode = 200;
       response.body = JSON.stringify({
         "place": "場所",
