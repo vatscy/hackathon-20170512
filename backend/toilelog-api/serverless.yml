@@ -79,6 +79,13 @@ functions:
           path: listtoilet
           method: get
           cors: true
+  postevaluation:
+    handler: post_evaluation.postevaluation
+    events:
+      - http:
+          path: postevaluation
+          method: post
+          cors: true
 
 resources:
   Resources:
