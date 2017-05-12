@@ -20,6 +20,14 @@ $(function() {
     $('#mainphoto-view').append('<li class="mainphoto-box"><img alt="メイン写真" class="mainphoto-image" src="/img/' + data.id + '/catch.jpg"></li>');
     $('#toilet-address').text(data.address);
 
+    var eva = data.evaluation || 0;
+    var scoreClass = 'score' + (eva < 1 ? 0 : ((Math.floor(eva * 10 / 5)) * 5));
+    var $rating = $('#toilet-rating');
+    $rating.append('<dt class="total">総合点数</dt><dd id="toilet-total-score" class="' + scoreClass + '"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><b>' + eva.toFixed(2) + '</b></dd>');
+    $rating.append('<dt class="dinner">夜の点数</dt><dd>' + eva.toFixed(2) + '</dd>');
+    $rating.append('<dt class="lunch">昼の点数</dt><dd>' + eva.toFixed(2) +'</dd>');
+    $rating.append('<dt class="rvw">口コミ</dt><dd><span class="count">43</span><span class="unit">万件</span></dd>');
+
     var info = data.information;
     var $infoBasic = $('#toilet-info-basic');
     function tf(isPresent) {
