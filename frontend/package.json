@@ -7,5 +7,10 @@
     "deploy": "./node_modules/.bin/gulp deploy"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-s3-upload": "^1.6.4",
+    "run-sequence": "^1.2.2"
+  }
 }
