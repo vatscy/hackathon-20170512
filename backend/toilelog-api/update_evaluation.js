@@ -5,7 +5,7 @@
 
 var AWS = require("aws-sdk");
 var dynamo = new AWS.DynamoDB.DocumentClient();
-var tableName = "evaluations";
+var tableName = "toilets";
 
 //Response
 var response = {
@@ -22,20 +22,9 @@ var response = {
 module.exports.updateevaluation = (event, context, callback) => {
 
   var body = JSON.parse(event.body);
-  console.log("スタート");
 
   //データ設定
   var comprehensive = (body.location + body.functionality + body.design + body.comfortability + body.others) / 5;
-  var item = {
-    "id": body.id,
-    "comprehensive": comprehensive,
-    "location": body.location,
-    "functionality": body.functionality,
-    "design": body.design,
-    "comfortability": body.comfortability,
-    "others": body.others
-  };
-  console.log("アイテム ->" + item);
 
   //get Request
   var get_param = {
@@ -47,7 +36,6 @@ module.exports.updateevaluation = (event, context, callback) => {
 
   //dynamo get
   dynamo.get(get_param, function(err, data) {
-    console.log("エラー ->" + err);
     //error
     if (err) {
       response.statusCode = 400;
@@ -64,15 +52,15 @@ module.exports.updateevaluation = (event, context, callback) => {
         },
         UpdateExpression: "set evaluation = :new_evaluation, evaluation_count= evaluation_count + :val",
         ExpressionAttributeValues: {
-          ":new_evaluation": (data.Item.evaluation + comprehensive) / (data.Item.evaluation_count + 1),
+          ":new_evaluation": (data.Item.evaluation * data.Item.evaluation_count + comprehensive) / (data.Item.evaluation_count + 1),
           ":val": 1
-        }
+        },
+        ReturnValues: "UPDATED_NEW"
       };
       //dynamo update
       dynamo.update(update_param, function(err2, data2) {
-        console.log("エラー2 ->" + err2);
         //error
-        if (err) {
+        if (err2) {
           response.statusCode = 400;
           response.body = JSON.stringify({
             "message": err2
