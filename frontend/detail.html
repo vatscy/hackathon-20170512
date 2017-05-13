@@ -355,15 +355,9 @@
 
 <nav id="rstdtl_head_navi" class="rstdtl-navi existcoupon">
   <ul class="rstdtl-navi__list">
-      <li class="rstdtl-navi__item rstdtl-navi__item--table">
-        <a href="https://s.tabelog.com/tokyo/A1301/A130101/13174287/table/" class="rstdtl-navi__target">
-          個室
-        </a>
-      </li>
-
       <li class="rstdtl-navi__item rstdtl-navi__item--menu">
-        <a href="https://tabelog.com/tokyo/A1301/A130101/13174287/party/" class="rstdtl-navi__target">
-          メニュー
+        <a href="#rst-data-head" class="rstdtl-navi__target">
+          トイレ情報
         </a>
       </li>
 
@@ -376,6 +370,11 @@
       <li class="rstdtl-navi__item rstdtl-navi__item--rvw">
         <a href="#rv-section" class="rstdtl-navi__target">
           口コミ
+        </a>
+      </li>
+      <li class="rstdtl-navi__item rstdtl-navi__item--table">
+        <a href="#toilet-rating-nav" class="rstdtl-navi__target">
+          評価
         </a>
       </li>
 
@@ -723,7 +722,7 @@
   </div>
 
 
-  <nav>
+  <nav id="toilet-rating-nav">
     <h4 class="rstdtl-top-title">
       評価
     </h4>
@@ -774,20 +773,11 @@
 <nav id="nav-rstdtl">
 
 <ul id="rstdtl_info_navi" class="rst-expage">
-
-  <li class="top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">トイレ情報トップ</a></li>
-
-    <li class="table"><a href="https://s.tabelog.com/tokyo/A1301/A130101/13174287/table/">座席</a></li>
-
-    <li class="menu"><a href="https://tabelog.com/tokyo/A1301/A130101/13174287/party/">メニュー</a></li>
-
+    <li class="menu"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">トイレ情報</a></li>
     <li class="photo"><a href="#photos-section">写真</a></li>
-
     <li class="review"><a href="#rv-section">口コミ</a></li>
-
-
+    <li class="table"><a href="#toilet-rating-nav">評価</a></li>
     <li class="map"><a id="toilet-map-bar">地図</a></li>
-
 </ul>
 
 </nav>
