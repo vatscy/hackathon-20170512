@@ -93,8 +93,8 @@ $(function() {
       var comfortability = $('#toilet-rating-comfortability').rating('get rating');
       var others = $('#toilet-rating-others').rating('get rating');
       $.ajax({
-        type: 'POST',
-        url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/postevaluation',
+        type: 'PUT',
+        url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/updateevaluation',
         data: JSON.stringify({
           id: id,
           location: location,
