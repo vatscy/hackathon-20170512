@@ -80,4 +80,35 @@ $(function() {
       location.href = '/list.html';
       return;
     });
+
+    $('.ui.rating').rating();
+    $('#toilet-rating-btn').on('click', function() {
+      var location = $('#toilet-rating-location').rating('get rating');
+      var functionality = $('#toilet-rating-functionality').rating('get rating');
+      var design = $('#toilet-rating-design').rating('get rating');
+      var comfortability = $('#toilet-rating-comfortability').rating('get rating');
+      var others = $('#toilet-rating-others').rating('get rating');
+      $.ajax({
+        type: 'POST',
+        url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/postevaluation',
+        data: JSON.stringify({
+          id: id,
+          location: location,
+          functionality: functionality,
+          design: design,
+          comfortability: comfortability,
+          others: others
+        }),
+        contentType: 'application/json',
+        dataType: 'json'
+      })
+      .done(function () {
+        alert('評価が完了しました。');
+      })
+      .fail(function() {
+        console.log('fail');
+        console.log(arguments);
+        alert('只今サーバーメンテナンス中です。');
+      });
+    });
 });
