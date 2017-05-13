@@ -39,7 +39,7 @@ $(function() {
       $('#toilet-map-bar').attr('href', mapLink);
 
       var eva = data.evaluation || 0;
-      var scoreClass = 'score' + (eva < 1 ? 0 : ((Math.floor(eva * 10 / 5)) * 5));
+      var scoreClass = 'score' + (eva < 1 ? '05' : ((Math.floor(eva * 10 / 5)) * 5));
       var $rating = $('#toilet-rating');
       $rating.append('<dt class="total">総合点数</dt><dd id="toilet-total-score" class="' + scoreClass + '"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><b>' + eva.toFixed(2) + '</b></dd>');
       $rating.append('<dt class="dinner">夜の点数</dt><dd>' + eva.toFixed(2) + '</dd>');
@@ -72,6 +72,10 @@ $(function() {
 
       $('#info-yo').text(info.style_western ? '有' : '無');
       $('#info-wa').text(info.style_japan ? '有' : '無');
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
     })
     .fail(function() {
       console.log('fail');
@@ -81,18 +85,18 @@ $(function() {
       return;
     });
 
-    $('.ui.rating').rating();
-    $('#toilet-rating-toggle').on('click', function() {
-      $('#toilet-rating-area').toggle();
-      return false;
-    });
-    $('#toilet-rating-btn').on('click', function() {
-      var location = $('#toilet-rating-location').rating('get rating');
-      var functionality = $('#toilet-rating-functionality').rating('get rating');
-      var design = $('#toilet-rating-design').rating('get rating');
-      var comfortability = $('#toilet-rating-comfortability').rating('get rating');
-      var others = $('#toilet-rating-others').rating('get rating');
-      $.ajax({
+  $('.ui.rating').rating();
+  $('#toilet-rating-toggle').on('click', function() {
+    $('#toilet-rating-area').toggle();
+    return false;
+  });
+  $('#toilet-rating-btn').on('click', function() {
+    var location = $('#toilet-rating-location').rating('get rating');
+    var functionality = $('#toilet-rating-functionality').rating('get rating');
+    var design = $('#toilet-rating-design').rating('get rating');
+    var comfortability = $('#toilet-rating-comfortability').rating('get rating');
+    var others = $('#toilet-rating-others').rating('get rating');
+    $.ajax({
         type: 'PUT',
         url: 'https://gxl6xlv440.execute-api.ap-northeast-1.amazonaws.com/dev/updateevaluation',
         data: JSON.stringify({
@@ -106,13 +110,14 @@ $(function() {
         contentType: 'application/json',
         dataType: 'json'
       })
-      .done(function () {
+      .done(function() {
         alert('評価が完了しました。');
+        window.location.reload();
       })
       .fail(function() {
         console.log('fail');
         console.log(arguments);
         alert('只今サーバーメンテナンス中です。');
       });
-    });
+  });
 });
