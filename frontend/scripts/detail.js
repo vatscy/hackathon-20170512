@@ -19,6 +19,11 @@ $(function() {
     $('#pillow-word').text(data.pillow_word);
     $('#mainphoto-view').append('<li class="mainphoto-box"><img alt="メイン写真" class="mainphoto-image" src="/img/' + data.id + '/catch.jpg"></li>');
     $('#toilet-address').text(data.address);
+    var mapLink = 'https://maps.google.co.jp/maps?q=' + encodeURIComponent(data.address);
+    $('#toilet-map-menu').attr('href', mapLink);
+    $('#toilet-map-link-1').attr('href', mapLink);
+    $('#toilet-map-link-2').attr('href', mapLink);
+    $('#toilet-map-bar').attr('href', mapLink);
 
     var eva = data.evaluation || 0;
     var scoreClass = 'score' + (eva < 1 ? 0 : ((Math.floor(eva * 10 / 5)) * 5));
