@@ -727,38 +727,46 @@
     <h4 class="rstdtl-top-title">
       評価
     </h4>
-    <section class="rstdtl-data-info__contents">
-      <table class="c-table rstdtl-data-info__table">
-        <tbody>
-          <tr>
-            <th>立地</th>
-            <td><div class="ui massive star rating" data-max-rating="5" id="toilet-rating-location"></div></td>
-          </tr>
-          <tr>
-            <th>機能性</th>
-            <td><div class="ui massive star rating" data-max-rating="5" id="toilet-rating-functionality"></div></td>
-          </tr>
-          <tr>
-            <th>デザイン</th>
-            <td><div class="ui massive star rating" data-max-rating="5" id="toilet-rating-design"></div></td>
-          </tr>
-          <tr>
-            <th>居心地</th>
-            <td><div class="ui massive star rating" data-max-rating="5" id="toilet-rating-comfortability"></div></td>
-          </tr>
-          <tr>
-            <th>その他</th>
-            <td><div class="ui massive star rating" data-max-rating="5" id="toilet-rating-others"></div></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
     <ul class="rstdtl-post-btn">
       <li>
-        <button class="c-btn c-btn--full c-btn--success gly-b-editadd" id="toilet-rating-btn"><span>このトイレを評価する</span></button>
+        <div class="rstdtl-contact__open-appli">
+          <p class="rstdtl-contact__open-appli-btn">
+            <a class="js-analytics" id="toilet-rating-toggle">このトイレを評価する</a>
+          </p>
+        </div>
       </li>
     </ul>
-    <p class="rstdtl-around-shop"><a href="/smartphone/restaurant_list/list/?lat=35.67095472222222&amp;lon=139.77181777777778&amp;LstRange=A&amp;peripheral=1" class="rstdtl-around-shop__target">周辺のレストラン</a></p>
+    <div id="toilet-rating-area" style="display:none;border-top:solid 4px #ccc;border-bottom:solid 4px #ccc;margin-bottom:10px;">
+      <section class="rstdtl-data-info__contents">
+        <table class="c-table rstdtl-data-info__table">
+          <tbody>
+            <tr>
+              <th>立地</th>
+              <td><div class="ui massive star rating" data-rating="3" data-max-rating="5" id="toilet-rating-location"></div></td>
+            </tr>
+            <tr>
+              <th>機能性</th>
+              <td><div class="ui massive star rating" data-rating="3" data-max-rating="5" id="toilet-rating-functionality"></div></td>
+            </tr>
+            <tr>
+              <th>デザイン</th>
+              <td><div class="ui massive star rating" data-rating="3" data-max-rating="5" id="toilet-rating-design"></div></td>
+            </tr>
+            <tr>
+              <th>居心地</th>
+              <td><div class="ui massive star rating" data-rating="3" data-max-rating="5" id="toilet-rating-comfortability"></div></td>
+            </tr>
+            <tr>
+              <th>その他</th>
+              <td><div class="ui massive star rating" data-rating="3" data-max-rating="5" id="toilet-rating-others"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <div style="margin:10px;">
+        <button class="c-btn c-btn--full c-btn--success gly-b-editadd" id="toilet-rating-btn"><span>このトイレを評価する</span></button>
+      </div>
+    </div>
   </nav>
 </article>
 
