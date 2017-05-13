@@ -69,6 +69,9 @@ $(function() {
       $infoBasic.append('<tr><th>パウダールーム</th><td><p>' + tf(info.powder_room) + '</p></td></tr>');
       $infoBasic.append('<tr><th>おむつ交換設備</th><td><p>' + tf(info.diaper_change_space) + '</p></td></tr>');
       $infoBasic.append('<tr><th>車椅子対応</th><td><p>' + tf(info.wheelchair) + '</p></td></tr>');
+
+      $('#info-yo').text(info.style_western ? '有' : '無');
+      $('#info-wa').text(info.style_japan ? '有' : '無');
     })
     .fail(function() {
       console.log('fail');
