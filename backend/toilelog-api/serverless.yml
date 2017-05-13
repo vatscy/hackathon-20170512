@@ -79,12 +79,12 @@ functions:
           path: listtoilet
           method: get
           cors: true
-  postevaluation:
-    handler: post_evaluation.postevaluation
+  updateevaluation:
+    handler: update_evaluation.updateevaluation
     events:
       - http:
-          path: postevaluation
-          method: post
+          path: updateevaluation
+          method: put
           cors: true
 
 resources:
@@ -93,21 +93,6 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: toilets
-        AttributeDefinitions:
-          -
-            AttributeName: id
-            AttributeType: S
-        KeySchema:
-          -
-            AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
-    DynamoTable2:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: evaluations
         AttributeDefinitions:
           -
             AttributeName: id
