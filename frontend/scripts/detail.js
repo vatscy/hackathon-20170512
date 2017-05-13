@@ -82,6 +82,10 @@ $(function() {
     });
 
     $('.ui.rating').rating();
+    $('#toilet-rating-toggle').on('click', function() {
+      $('#toilet-rating-area').toggle();
+      return false;
+    });
     $('#toilet-rating-btn').on('click', function() {
       var location = $('#toilet-rating-location').rating('get rating');
       var functionality = $('#toilet-rating-functionality').rating('get rating');
